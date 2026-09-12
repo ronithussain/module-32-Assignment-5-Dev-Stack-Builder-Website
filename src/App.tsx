@@ -3,28 +3,30 @@ import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import Tecnologies from "./components/tecnologies/Tecnologies";
 import StackSidebar from "./components/tecnologies/StackSidebar";
+import type { ITecnology } from "./types/type";
 
 function App() {
-  const tecnologiesFetch = async () => {
+  const tecnologiesFetch = async ():Promise<ITecnology[]> => {
     const res = await fetch("../public/tecnologies_data.json");
     const data = await res.json();
     return data;
   };
   const tecnologiesPromiseData = tecnologiesFetch();
+
   return (
     <>
       <Navbar />
       <Banner />
       <Suspense fallback={<p>Loading tecnology data.....</p>}>
-        <div className="border ">
+        <div className=" ">
           <section className="container mx-auto grid grid-cols-1  lg:grid-cols-[1fr_300px] gap-8">
             {/* Left site */}
-            <div className="border">
+            <div className="">
               <Tecnologies tecnologiesPromiseData={tecnologiesPromiseData} />
             </div>
 
             {/* RIght site */}
-            <aside className="border">
+            <aside className="">
               <StackSidebar />
             </aside>
           </section>

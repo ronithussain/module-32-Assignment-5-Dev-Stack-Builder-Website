@@ -3,7 +3,7 @@ import logo from "../assets/logo-text.png";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 border-b border-gray-200 bg-white/70 backdrop-blur-sm  shadow-sm ">
+    <div className="sticky top-0 z-100 border-b border-gray-200 bg-white/70 backdrop-blur-sm  shadow-sm ">
       <nav className="container p-1  mx-auto py-3 flex items-center justify-between ">
         {/* Hambar Menu Icon */}
         <div className="md:hidden block text-xl text-gray-600">
