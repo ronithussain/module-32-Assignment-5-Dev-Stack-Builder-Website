@@ -1,11 +1,31 @@
 import { IoIosStarHalf } from "react-icons/io";
 import type { ITecnology } from "../../types/type";
+import { type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface ICardTecnology {
   tecnology: ITecnology;
+  addToCart: ITecnology[];
+  setAddToCart: Dispatch<SetStateAction<ITecnology[]>>;
 }
-const TecnologyCard = ({ tecnology }: ICardTecnology) => {
-  // console.log(tecnology, 'asdkfsd');
+const TecnologyCard = ({
+  tecnology,
+  addToCart,
+  setAddToCart,
+}: ICardTecnology) => {
+  const handleAddTecnology = (tech: ITecnology) => {
+    const isAlreadyAdded = addToCart.find((item) => item.id === tech.id);
+
+    // isExists
+    if (isAlreadyAdded) {
+      toast.error("This technology is already added to your stack!");
+      return;
+    }
+    // console.log(tech, 'successfully added');
+    toast.success("The stack is successfully added");
+    setAddToCart([...addToCart, tech]);
+  };
+  const isAdded = addToCart.find((i) => i.id === tecnology.id);
   return (
     <div>
       <div
@@ -98,6 +118,8 @@ const TecnologyCard = ({ tecnology }: ICardTecnology) => {
 
           {/* Button */}
           <button
+            // disabled={isAdded ? true : false}
+            onClick={() => handleAddTecnology(tecnology)}
             className="
         mt-6
         w-full
@@ -117,7 +139,7 @@ const TecnologyCard = ({ tecnology }: ICardTecnology) => {
         transition
       "
           >
-            Explore Technology
+            {isAdded ? "✓ Added to Stack" : "Explore Technology"}
           </button>
         </div>
       </div>

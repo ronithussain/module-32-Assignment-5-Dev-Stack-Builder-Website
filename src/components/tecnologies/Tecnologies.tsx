@@ -1,12 +1,14 @@
-import { use } from "react";
+import { use, type Dispatch, type SetStateAction } from "react";
 import type { ITecnology } from "../../types/type";
 import TecnologyCard from "./TecnologyCard";
 
 interface ITech {
   tecnologiesPromiseData: Promise<ITecnology[]>;
+  addToCart:ITecnology[];
+  setAddToCart:Dispatch<SetStateAction<ITecnology[]>>
 }
 
-const Tecnologies = ({ tecnologiesPromiseData }: ITech) => {
+const Tecnologies = ({ tecnologiesPromiseData, addToCart, setAddToCart }: ITech) => {
   const tecnologies = use(tecnologiesPromiseData);
 //   console.log(tecnologies, "data is ready");
 
@@ -28,7 +30,9 @@ const Tecnologies = ({ tecnologiesPromiseData }: ITech) => {
         {tecnologies.map((tecnology) => (
           <TecnologyCard 
           key={tecnology.id}
-          tecnology={tecnology} 
+          tecnology={tecnology}
+          addToCart={addToCart} 
+          setAddToCart={setAddToCart}  
           />
         ))}
       </div>
