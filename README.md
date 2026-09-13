@@ -1,6 +1,6 @@
 Project Name: Dev Stack
 Git Repository Link: 
-Live Link: 
+Live Link: https://bejewelled-gecko-2f49be.netlify.app
 
 A simple and responsive web application for exploring different web development technologies and building your own technology stack.
 

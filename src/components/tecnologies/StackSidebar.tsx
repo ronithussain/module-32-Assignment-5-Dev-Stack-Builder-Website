@@ -6,12 +6,13 @@ interface ITechProps {
   addToCart: ITecnology[];
   setAddToCart: Dispatch<SetStateAction<ITecnology[]>>;
   handleRemoveStack: (id: string) => void;
+  handleRemoveAll: () => void;
 }
 
 const StackSidebar = ({
   addToCart,
-  setAddToCart,
   handleRemoveStack,
+  handleRemoveAll
 }: ITechProps) => {
   console.log(addToCart, "stack done");
   return (
@@ -19,7 +20,7 @@ const StackSidebar = ({
       <h1 className="text-xl sm:text-2xl font-bold mb-2">Your Stack</h1>
       <p className="text-gray-500 mb-4">
         {addToCart
-          ? `${addToCart.length} Technology Selected`
+          ? `${addToCart.length > 0} Technology Selected`
           : "No technologies selected yet."}
       </p>
       <div className="border border-gray-300 p-4 rounded-xl">
@@ -49,7 +50,7 @@ const StackSidebar = ({
         )}
       </div>
       <button
-        onClick={()=> setAddToCart([])}
+        onClick={()=> handleRemoveAll()}
         className="
         btn w-full mt-4 rounded-2xl
               text-sm

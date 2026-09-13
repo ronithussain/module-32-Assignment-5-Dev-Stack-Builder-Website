@@ -13,7 +13,7 @@ const TecnologyCard = ({
   addToCart,
   setAddToCart,
 }: ICardTecnology) => {
-  
+
   const handleAddTecnology = (tech: ITecnology) => {
     const isAlreadyAdded = addToCart.find((item) => item.id === tech.id);
 
@@ -119,7 +119,7 @@ const TecnologyCard = ({
 
           {/* Button */}
           <button
-            // disabled={isAdded ? true : false}
+            disabled={isAdded ? true : false}
             onClick={() => handleAddTecnology(tecnology)}
             className="
         mt-6
