@@ -13,6 +13,7 @@ const TecnologyCard = ({
   addToCart,
   setAddToCart,
 }: ICardTecnology) => {
+  
   const handleAddTecnology = (tech: ITecnology) => {
     const isAlreadyAdded = addToCart.find((item) => item.id === tech.id);
 
