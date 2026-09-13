@@ -1,5 +1,6 @@
 Project Name: Dev Stack
-Git Repository Link: 
+Git Repository Link: https://github.com/ronithussain/module-32-Assignment-5-Dev-Stack-Builder-Website.git
+
 Live Link: https://bejewelled-gecko-2f49be.netlify.app
 
 A simple and responsive web application for exploring different web development technologies and building your own technology stack.
